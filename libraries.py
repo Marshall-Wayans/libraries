@@ -72,27 +72,27 @@
 import requests
 import matplotlib.pyplot as plt
 
-# Step 1: Define API URL
+#Define API URL
 url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
 
 try:
-    # Step 2: Send request to API
+    #Send request to API
     response = requests.get(url)
 
-    # Step 3: Check if request was successful
+    #Check if request was successful
     if response.status_code == 200:
         data = response.json()
 
-        # Step 4: Extract useful data
+        #Extract useful data
         price = data["bitcoin"]["usd"]
 
         print("Current Bitcoin Price (USD):", price)
 
-        # Step 5: Create sample historical data
+        #Create sample historical data
         prices = [price - 800, price - 400, price - 200, price]
         days = ["3 Days Ago", "2 Days Ago", "Yesterday", "Today"]
 
-        # Step 6: Plot the data
+        #Plot the data
         plt.plot(days, prices)
         plt.title("Bitcoin Price Trend")
         plt.xlabel("Days")
